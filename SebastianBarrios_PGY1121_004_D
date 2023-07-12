@@ -1,0 +1,301 @@
+#EXAMEN
+
+i = 0
+platinum = 0
+gold = 0
+silver = 0
+total = 0
+as_platinum = 0
+as_gold = 0
+as_silver = 0
+asistentes = []
+asientos = [[1,2,3,4,5,6,7,8,9,10,],
+            [11,12,13,14,15,16,17,18,19,20],
+            [21,22,23,24,25,26,27,28,29,30],
+            [31,32,33,34,35,36,37,38,39,40],
+            [41,42,43,44,45,46,47,48,49,50],
+            [51,52,53,54,55,56,57,58,59,60],
+            [61,62,63,64,65,66,67,68,69,70],
+            [71,72,73,74,75,76,77,78,79,80],
+            [81,82,83,84,85,86,87,88,89,90],
+            [91,92,93,94,95,96,97,98,99,100]]
+
+def escenario():
+  print("")
+  print("|SECTOR     | PRECIO   |")
+  print("|___________|__________|")
+  print("| Platinum  | $120.000 |")
+  print("| Gold      | $80.000  |")
+  print("| Silver    | $50.000  |")
+  print("|___________|__________|\n\n")
+
+  print("+_______________________+")
+  print("|        ESCENARIO      |")
+  print("|_______________________|")
+  print("SECTOR       | ASIENTOS")
+  print(f"Platinum 1 -> {asientos[0]}")
+  print(f"Platinum 2 -> {asientos[1]}")
+  print(f"Gold 1     -> {asientos[2]}")
+  print(f"Gold 2     -> {asientos[3]}")
+  print(f"Gold 3     -> {asientos[4]}")
+  print(f"Silver 1   -> {asientos[5]}")
+  print(f"Silver 2   -> {asientos[6]}")
+  print(f"Silver 3   -> {asientos[7]}")
+  print(f"Silver 4   -> {asientos[8]}")
+  print(f"Silver 5   -> {asientos[9]}\n")
+  
+def asientos_disp():
+  print("+_______________________+")
+  print("|        ESCENARIO      |")
+  print("|_______________________|")
+  print("SECTOR       | ASIENTOS")
+  print(f"Platinum 1 -> {asientos[0]}")
+  print(f"Platinum 2 -> {asientos[1]}")
+  print(f"Gold 1     -> {asientos[2]}")
+  print(f"Gold 2     -> {asientos[3]}")
+  print(f"Gold 3     -> {asientos[4]}")
+  print(f"Silver 1   -> {asientos[5]}")
+  print(f"Silver 2   -> {asientos[6]}")
+  print(f"Silver 3   -> {asientos[7]}")
+  print(f"Silver 4   -> {asientos[8]}")
+  print(f"Silver 5   -> {asientos[9]}\n")
+
+
+  
+
+
+while i == 0:
+  print("+___________________________________+")
+  print('|BIENVENIDO A "Creativos.cl        |"')
+  print('|CONCIERTO DE "MICHAEL JAM"        |')
+  print("_____________________________________")
+  print("1.- Comprar Entradas")
+  print("2.- Mostrar ubicaciones disponibles")
+  print("3.- Ver listado de asistentes")
+  print("4.- Mostrar ganancias totales")
+  print("5.- Salir")
+  print("_____________________________________\n")
+  try:
+    op = int(input("Ingrese el numero correspondiente a la opción que desea realizar: "))
+    if op > 0 and op < 6:
+      if op == 1:
+        print("Usted ha seleccionado la opción: Comprar Entradas")
+        cant_entradas = int(input("Ingrese la cantidad de entradas que desea comprar (Máximo 3): "))
+        if cant_entradas > 0 and cant_entradas < 4:
+          for x in range(cant_entradas):
+            escenario()
+            sec = str(input("Ingrese el sector en el que desea comprar su asiento: "))
+            if sec == "Platinum 1" or sec == "platinum 1" or sec == "PLATINUM 1":
+              as_slc = int(input("Ingrese el asiento que desea comprar: "))
+              if as_slc in asientos[0]:
+                rut = str(input("Ingrese el rut sin puntos, guión ni dígito verificador del cliente que ocupará el asiento seleccionado: "))
+                if len(rut) == 7 or len(rut) == 8:
+                  asistentes.append(rut)
+                  asientos[0].remove(as_slc)
+                  asientos[0].insert(as_slc-1, "X")
+                  print("La compra ha sido realizada con éxito.\nDisfrute su concierto, recuerde llegar 40 minutos antes.\n")
+                  platinum+=120000
+                  as_platinum+=1
+                else:
+                  i=0
+                  print("ERROR!\nEl rut ingresado es inválido.")
+              else:
+                i=0
+                print("ERROR!\nEl asiento ingresado no se encuentra disponible.")
+
+            if sec == "Platinum 2" or sec == "PLATINUM 2" or sec == "platinum 2":
+              as_slc = int(input("Ingrese el asiento que desea comprar: "))
+              if as_slc in asientos[1]:
+                rut = str(input("Ingrese el rut sin puntos, guión ni dígito verificador del cliente que ocupará el asiento seleccionado: "))
+                if len(rut) == 7 or len(rut) == 8:
+                  asistentes.append(rut)
+                  asientos[1].remove(as_slc)
+                  asientos[1].insert(as_slc-11, "X")
+                  print("La compra ha sido realizada con éxito.\nDisfrute su concierto, recuerde llegar 40 minutos antes.\n")
+                  platinum+=120000
+                  as_platinum+=1
+                else:
+                  i=0
+                  print("ERROR!\nEl rut ingresado es inválido.")
+              else:
+                i=0
+                print("ERROR!\nEl asiento ingresado no se encuentra disponible.")
+
+            if sec == "Gold 1" or sec == "GOLD 1" or sec == "gold 1":
+              as_slc = int(input("Ingrese el asiento que desea comprar: "))
+              if as_slc in asientos[2]:
+                rut = str(input("Ingrese el rut sin puntos, guión ni dígito verificador del cliente que ocupará el asiento seleccionado: "))
+                if len(rut) == 7 or len(rut) == 8:
+                  asistentes.append(rut)
+                  asientos[2].remove(as_slc)
+                  asientos[2].insert(as_slc-21, "X")
+                  print("La compra ha sido realizada con éxito.\nDisfrute su concierto, recuerde llegar 40 minutos antes.\n")
+                  gold+=80000
+                  as_gold+=1
+                else:
+                  i=0
+                  print("ERROR!\nEl rut ingresado es inválido.")
+              else:
+                i=0
+                print("ERROR!\nEl asiento ingresado no se encuentra disponible.")
+
+            if sec == "Gold 2" or sec == "GOLD 2" or sec == "gold 2":
+              as_slc = int(input("Ingrese el asiento que desea comprar: "))
+              if as_slc in asientos[3]:
+                rut = str(input("Ingrese el rut sin puntos, guión ni dígito verificador del cliente que ocupará el asiento seleccionado: "))
+                if len(rut) == 7 or len(rut) == 8:
+                  asistentes.append(rut)
+                  asientos[3].remove(as_slc)
+                  asientos[3].insert(as_slc-31, "X")
+                  print("La compra ha sido realizada con éxito.\nDisfrute su concierto, recuerde llegar 40 minutos antes.\n")
+                  gold+=80000
+                  as_gold+=1
+                else:
+                  i=0
+                  print("ERROR!\nEl rut ingresado es inválido.")
+              else:
+                i=0
+                print("ERROR!\nEl asiento ingresado no se encuentra disponible.")
+
+            if sec == "Gold 3" or sec == "GOLD 3" or sec == "gold 3":
+              as_slc = int(input("Ingrese el asiento que desea comprar: "))
+              if as_slc in asientos[4]:
+                rut = str(input("Ingrese el rut sin puntos, guión ni dígito verificador del cliente que ocupará el asiento seleccionado: "))
+                if len(rut) == 7 or len(rut) == 8:
+                  asistentes.append(rut)
+                  asientos[4].remove(as_slc)
+                  asientos[4].insert(as_slc-41, "X")
+                  print("La compra ha sido realizada con éxito.\nDisfrute su concierto, recuerde llegar 40 minutos antes.\n")
+                  gold+=80000
+                  as_gold+=1
+                else:
+                  i=0
+                  print("ERROR!\nEl rut ingresado es inválido.")
+              else:
+                i=0
+                print("ERROR!\nEl asiento ingresado no se encuentra disponible.")
+
+            if sec == "Silver 1" or sec == "SILVER 1" or sec == "silver 1":
+              as_slc = int(input("Ingrese el asiento que desea comprar: "))
+              if as_slc in asientos[5]:
+                rut = str(input("Ingrese el rut sin puntos, guión ni dígito verificador del cliente que ocupará el asiento seleccionado: "))
+                if len(rut) == 7 or len(rut) == 8:
+                  asistentes.append(rut)
+                  asientos[5].remove(as_slc)
+                  asientos[5].insert(as_slc-51, "X")
+                  print("La compra ha sido realizada con éxito.\nDisfrute su concierto, recuerde llegar 40 minutos antes.\n")
+                  silver+=50000
+                  as_silver+=1
+                else:
+                  i=0
+                  print("ERROR!\nEl rut ingresado es inválido.")
+              else:
+                i=0
+                print("ERROR!\nEl asiento ingresado no se encuentra disponible.")
+
+            if sec == "Silver 2" or sec == "SILVER 2" or sec == "silver 2":
+              as_slc = int(input("Ingrese el asiento que desea comprar: "))
+              if as_slc in asientos[6]:
+                rut = str(input("Ingrese el rut sin puntos, guión ni dígito verificador del cliente que ocupará el asiento seleccionado: "))
+                if len(rut) == 7 or len(rut) == 8:
+                  asistentes.append(rut)
+                  asientos[6].remove(as_slc)
+                  asientos[6].insert(as_slc-61, "X")
+                  print("La compra ha sido realizada con éxito.\nDisfrute su concierto, recuerde llegar 40 minutos antes.\n")
+                  silver+=50000
+                  as_silver+=1
+                else:
+                  i=0
+                  print("ERROR!\nEl rut ingresado es inválido.")
+              else:
+                i=0
+                print("ERROR!\nEl asiento ingresado no se encuentra disponible.")
+
+            if sec == "Silver 3" or sec == "SILVER 3" or sec == "silver 3":
+              as_slc = int(input("Ingrese el asiento que desea comprar: "))
+              if as_slc in asientos[7]:
+                rut = str(input("Ingrese el rut sin puntos, guión ni dígito verificador del cliente que ocupará el asiento seleccionado: "))
+                if len(rut) == 7 or len(rut) == 8:
+                  asistentes.append(rut)
+                  asientos[7].remove(as_slc)
+                  asientos[7].insert(as_slc-71, "X")
+                  print("La compra ha sido realizada con éxito.\nDisfrute su concierto, recuerde llegar 40 minutos antes.\n")
+                  silver+=50000
+                  as_silver+=1
+                else:
+                  i=0
+                  print("ERROR!\nEl rut ingresado es inválido.")
+              else:
+                i=0
+                print("ERROR!\nEl asiento ingresado no se encuentra disponible.")
+
+            if sec == "Silver 4" or sec == "SILVER 4" or sec == "silver 4":
+              as_slc = int(input("Ingrese el asiento que desea comprar: "))
+              if as_slc in asientos[8]:
+                rut = str(input("Ingrese el rut sin puntos, guión ni dígito verificador del cliente que ocupará el asiento seleccionado: "))
+                if len(rut) == 7 or len(rut) == 8:
+                  asistentes.append(rut)
+                  asientos[8].remove(as_slc)
+                  asientos[8].insert(as_slc-81, "X")
+                  print("La compra ha sido realizada con éxito.\nDisfrute su concierto, recuerde llegar 40 minutos antes.\n")
+                  silver+=50000
+                  as_silver+=1
+                else:
+                  i=0
+                  print("ERROR!\nEl rut ingresado es inválido.")
+              else:
+                i=0
+                print("ERROR!\nEl asiento ingresado no se encuentra disponible.")
+
+            if sec == "Silver 5" or sec == "SILVER 5" or sec == "silver 5":
+              as_slc = int(input("Ingrese el asiento que desea comprar: "))
+              if as_slc in asientos[9]:
+                rut = str(input("Ingrese el rut sin puntos, guión ni dígito verificador del cliente que ocupará el asiento seleccionado: "))
+                if len(rut) == 7 or len(rut) == 8:
+                  asistentes.append(rut)
+                  asientos[9].remove(as_slc)
+                  asientos[9].insert(as_slc-91, "X")
+                  print("La compra ha sido realizada con éxito.\nDisfrute su concierto, recuerde llegar 40 minutos antes.\n")
+                  silver+=50000
+                  as_silver+=1
+                else:
+                  i=0
+                  print("ERROR!\nEl rut ingresado es inválido.")
+              else:
+                i=0
+                print("ERROR!\nEl asiento ingresado no se encuentra disponible.")
+            else:
+              i=0
+              print("ERROR!\nEl sector ingresado es inválido.\n")
+
+        else:
+          i=0
+          print("ERROR!\nLa cantidad de entradas ingresada es inválida.")
+      if op == 2:
+        print("Usted ha seleccionado la opción: Mostrar ubicaciones disponibles\n")
+        print('Los asientos ocupados se encuentran marcados con una "X"\nLos asientos disponibles se encuentran marcados con el número correspondiente al asiento.\n')
+        asientos_disp()
+      if op == 3:
+        print("Usted ha seleccionado la opción: Ver listado de asistentes\n")
+        asistentes.sort()
+        print(asistentes)
+      if op == 4:
+        print("Usted ha seleccionado la opción: Mostrar ganancias totales")
+        print("")
+        print("SECTOR       | cantidad   | Total")
+        print("_____________|____________|______________")
+        print(f"  Platinum  -> {as_platinum} -> {platinum} ")
+        print(f"  Gold      -> {as_gold} -> {gold}")
+        print(f"  Silver    -> {as_silver} -> {silver}")
+        print(f"  Total     -> {as_platinum + as_gold + as_silver} -> {platinum + gold + silver}")
+        print(f"_______________________________\n\n")
+      if op == 5:
+        i+=1
+        print("Usted ha seleccionado la opción: Salir")
+        print("Hasta luego Sebastián Barrios.\nMiércoles 12/07/2023")
+    else:
+      i=0
+      print("ERROR!\nLa opción ingresada no está disponible.\n")
+  except:
+    i=0
+    print("ERROR!\nLa opción ingresada no está disponible.\nDebe ingresar un valor numérico.\n")
